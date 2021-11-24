@@ -26,15 +26,26 @@ String location = "southeastasia";
 Console.WriteLine("Translate from language:");
 string translateFromLang = Console.ReadLine();
 
-Console.WriteLine("Translate to language:");
-string tranlateToLang = Console.ReadLine();
+Console.WriteLine("Translate to language (use ',' to separated each language):");
+string translateToLang = Console.ReadLine();
+
+string[] targetLangs = translateToLang.Split(",");
 
 
 Console.WriteLine("Input message:");
 string textToTranslate = Console.ReadLine();
 
 // Input and output languages are defined as parameters.
-string route = $"/translate?api-version=3.0&from={translateFromLang}&to={tranlateToLang}";
+string route = $"/translate?api-version=3.0&from={translateFromLang}";
+
+foreach (var lang in targetLangs)
+{
+    route += $"&to={lang.Trim()}";
+}
+
+Console.WriteLine($"Route: {route}");
+
+
 object[] body = new object[] { new { Text = textToTranslate } };
 var requestBody = JsonConvert.SerializeObject(body);
 
