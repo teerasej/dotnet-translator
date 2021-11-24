@@ -27,14 +27,14 @@ Console.WriteLine("Translate from language:");
 string translateFromLang = Console.ReadLine();
 
 Console.WriteLine("Translate to language:");
-string tranlateToLang = Console.ReadLine();
+string translateToLang = Console.ReadLine();
 
 
 Console.WriteLine("Input message:");
 string textToTranslate = Console.ReadLine();
 
 // Input and output languages are defined as parameters.
-string route = $"/translate?api-version=3.0&from={translateFromLang}&to={tranlateToLang}";
+string route = $"/translate?api-version=3.0&from={translateFromLang}&to={translateToLang}";
 object[] body = new object[] { new { Text = textToTranslate } };
 var requestBody = JsonConvert.SerializeObject(body);
 
