@@ -1,6 +1,4 @@
-﻿
-
-using System.Text;
+﻿using System.Text;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
 
